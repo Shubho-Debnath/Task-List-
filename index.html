@@ -3,47 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>AI Sprint Board</title>
+    <!-- SortableJS CDN — REQUIRED for drag & drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    <link rel="stylesheet" href="css/theme-system.css" />
+    <link rel="stylesheet" href="css/columns-grid.css" />
+    <link rel="stylesheet" href="css/task-card.css" />
   </head>
   <body>
-    <div class="main">
-      <nav>
-        <div class="right" id="logo">TO-DO List</div>
-        <div class="left">
-          <button id="toggleButton">Add new task</button>
-        </div>
-      </nav>
-      <section class="board">
-        <div id="todo" class="task-column">
-          <div class="heading">
-            <div class="left" id="left-todo">To DO</div>
-            <div id="todoCount" class="right">0</div>
+    <div class="board">
+      <div class="board__card" id="boardCard">
+        <div class="board__header">
+          <div class="board__title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+            <h1>AI Sprint Board</h1>
+          </div>
+          <div class="board__meta">
+            <span class="board__badge">Sprint 14</span>
+            <span class="board__date">Mar 24 – Apr 7</span>
+            <button class="board__theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
           </div>
         </div>
-        <div id="progress" class="task-column">
-          <div class="heading">
-            <div class="left" id="left-in-progress">In Progress</div>
-            <div class="right">0</div>
-          </div>
+
+        <div class="columns" id="columns"></div>
+
+        <div class="board__footer">
+          <span class="board__footer-count" id="footerCount"></span>
+          <span class="board__footer-dot">·</span>
+          <span class="board__footer-members">5 members</span>
         </div>
-        <div id="done" class="task-column">
-          <div class="heading">
-            <div class="left" id="left-done">Done</div>
-            <div class="right">0</div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="modal  add-new-task">
-        <div class="bg"></div>
-        <div class="center">
-        <input type="text" id="titleInput" placeholder="Task Title">
-        <textarea name="" id="deskInput" placeholder="Task Description"></textarea>
-        <button id="add-new-task" class="add-task-btn">Add Task</button>
-        </div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- JS files — order matters -->
+    <script src="js/task-data.js"></script>
+    <script src="js/render-engine.js"></script>
+    <script src="js/sortable-setup.js"></script>
   </body>
 </html>

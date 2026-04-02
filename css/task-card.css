@@ -1,0 +1,138 @@
+/* =============================================
+   task-card.css — individual task card styles
+   ============================================= */
+
+.task {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  cursor: grab;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s, opacity 0.2s;
+}
+
+.task:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.task:active { cursor: grabbing; }
+
+/* Title */
+.task h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+/* Description */
+.task__desc {
+  font-size: 0.75rem;
+  color: var(--dim);
+  line-height: 1.45;
+}
+
+/* Priority badge */
+.task__priority {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+.task__priority--high   { background: var(--priority-high-bg);   color: var(--priority-high); }
+.task__priority--medium { background: var(--priority-medium-bg); color: var(--priority-medium); }
+.task__priority--low    { background: var(--priority-low-bg);    color: var(--priority-low); }
+
+/* Done check icon */
+.task__check {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: var(--check-bg);
+  color: var(--check);
+  width: fit-content;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tag--ml       { background: var(--tag-ml-bg);       color: var(--tag-ml); }
+.tag--backend  { background: var(--tag-backend-bg);  color: var(--tag-backend); }
+.tag--frontend { background: var(--tag-frontend-bg); color: var(--tag-frontend); }
+.tag--data     { background: var(--tag-data-bg);     color: var(--tag-data); }
+.tag--security { background: var(--tag-security-bg); color: var(--tag-security); }
+.tag--ux       { background: var(--tag-ux-bg);       color: var(--tag-ux); }
+.tag--docs     { background: var(--tag-docs-bg);     color: var(--tag-docs); }
+
+/* Footer: avatar + date */
+.task__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 0.1rem;
+}
+
+.avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar--fallback {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task__date {
+  font-size: 0.68rem;
+  color: var(--dim);
+}
+
+/* Completed state */
+.task--completed {
+  opacity: 0.5;
+}
+.task--completed h3 {
+  text-decoration: line-through;
+  text-decoration-color: var(--dim);
+}
